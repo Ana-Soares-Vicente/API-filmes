@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/avaliacoes")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 
     public class AvaliacaoController {
