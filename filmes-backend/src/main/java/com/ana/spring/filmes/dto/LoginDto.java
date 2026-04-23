@@ -2,9 +2,7 @@ package com.ana.spring.filmes.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record UsuarioDto (
-        @NotBlank
-        String nome,
+public record LoginDto(
         @NotBlank
         String email,
         @NotBlank

@@ -18,4 +18,10 @@ public class Usuario {
     private Integer id;
 
     private String nome;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String senha;
 }

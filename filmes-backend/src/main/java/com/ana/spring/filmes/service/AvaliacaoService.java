@@ -7,7 +7,9 @@ import com.ana.spring.filmes.repository.AvaliacaoRepository;
 import com.ana.spring.filmes.repository.UsuarioRepository;
 import com.ana.spring.filmes.repository.FilmeRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -51,10 +53,7 @@ public class AvaliacaoService {
                 .orElse(null);
 
         if (avaliacaoExistente != null) {
-            //  atualiza nota
-            avaliacaoExistente.setNota(nota);
-            return avaliacaoRepository.save(avaliacaoExistente);
-        }
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Você já avaliou esse filme");        }
 
         //  cria nova avaliação
         Avaliacao nova = Avaliacao.builder()
